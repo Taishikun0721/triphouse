@@ -10,7 +10,7 @@ jobs:
           PGUSER: myuser
           RAILS_ENV: test
       - image: circleci/mysql:5.7
-          environment: # add mysql environment variables.
+        environment:
             MYSQL_PASSWORD: password
             MYSQL_USERNAME: 'root'
     working_directory: ~/triphouse
