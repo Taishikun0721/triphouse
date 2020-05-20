@@ -16,10 +16,6 @@ jobs:
     working_directory: ~/triphouse
     steps:
       - checkout
-
-      - run:
-        name: bundler
-        command: gem install bundler -v 2.1.4
   test:
     - run:
       name: rspec
