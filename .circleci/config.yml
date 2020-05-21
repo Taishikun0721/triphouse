@@ -14,16 +14,14 @@ jobs:
             MYSQL_PASSWORD: password
             MYSQL_USERNAME: 'root'
     working_directory: ~/triphouse
+
     steps:
       - checkout
+      
   test:
     - run:
       name: rspec
-      command: docker-compose web run rspec
-
-
-
-# We use workflows to orchestrate the jobs that we declared above.
+      command: rspec
 workflows:
   version: 2
   build_and_test:     # The name of our workflow is "build_and_test"
