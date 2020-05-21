@@ -4,29 +4,43 @@ jobs:
     docker:
       - image: circleci/ruby:2.5.3
         environment:
-          BUNDLE_JOBS: "3"
-          BUNDLE_RETRY: "3"
-          PGHOST: 127.0.0.1
-          PGUSER: myuser
-          RAILS_ENV: test
+          - RAILS_ENV: 'test'
       - image: circleci/mysql:5.7
         environment:
-            MYSQL_PASSWORD: password
-            MYSQL_USERNAME: 'root'
+            -MYSQL_PASSWORD: password
+            -MYSQL_USERNAME: 'root'
     working_directory: ~/triphouse
-
     steps:
       - checkout
-      
-  test:
-    - run:
-      name: rspec
-      command: rspec
-workflows:
-  version: 2
-  build_and_test:     # The name of our workflow is "build_and_test"
-    jobs:             # The list of jobs we run as part of this workflow.
-      - build         # Run build first.
-      - test:         # Then run test,
-          requires:   # Test requires that build passes for it to run.
-            - build   # Finally, run the build job.
+      - restore_cache:
+        keys:
+          - v1-dependencies-{{ checksum "Gemfile.lock" }}
+          - v1-dependencies-
+      - run:
+        name: install dependencies
+        command: |
+          bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cashe:
+          paths:
+          - ./vender/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run: mv config/database.yml.ci config/database.yml
+      - run: bundle exec rails db:create
+      - run: bundle exec rails db:schema:load
+      - run:
+        name: Rspec
+        command |
+          mkdir tmp/test-results
+          TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+            circleci tests split --split-by=timings)"
+          bundle exec rspec \
+            --format progress \
+            --format RspecJunitFormatter \
+            --out /tmp/test-results/rspec.xml \
+            --format progress \
+            $TEST_FILES
+      - store_test_results:
+        path: /tmp/test_results
+      - store-artifacts:
+        path: /tmp/test_results
+        destination: test-results
