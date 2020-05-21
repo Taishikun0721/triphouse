@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
   def index
-    @place = Place.all
+    @place = Place.page(params[:page]).per(18)
   end
 end
