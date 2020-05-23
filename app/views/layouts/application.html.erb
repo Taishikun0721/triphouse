@@ -5,9 +5,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag ("https://unpkg.com/swiper/css/swiper.min.css") %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag ('https://code.jquery.com/jquery-2.1.0.min.js') %>
+    <%= javascript_include_tag ('https://unpkg.com/swiper/js/swiper.min.js') %>
   </head>
 
   <body style="padding: 5rem;">
@@ -23,5 +25,24 @@
       <%= notice %>
       <%= yield %>
     </div>
+    <script>
+      var mySwiper = new Swiper ('.swiper-container', {
+        // ここからオプション
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+        autoplay: {
+          delay: 3000,
+        },
+      })
+     </script>
   </body>
 </html>
