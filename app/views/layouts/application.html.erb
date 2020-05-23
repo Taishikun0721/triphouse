@@ -14,13 +14,13 @@
       <div class="navbar navbar-expand navbar-light bg-light fixed-top p-4" style="border-bottom:inset;">
         <a href="/" class="navbar-brand" style="margin-right:20px">Triphouse</a>
         <ul class="navbar-nav nav-pills ml-auto justyfy-content-center">
-          <li class="nav-item"><a href= "/users/sign_up" class="nav-link">新規登録</a></li>
-          <li class="nav-item"><a href="/users/sign_out" data-method="delete" class="nav-link">サインアウト</a></li>
-          <li class="nav-item"><a href="/users/sign_out" data-method="delete" class="nav-link">簡単ログイン</a></li>
+          <li class="nav-item"><%= link_to "新規登録", new_user_registration_path,class:"nav-link" %></li>
+          <li class="nav-item"><%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
         </ul>
       </div>
-      <%= notice %>
+
     <div class = "container_fluid" style="height:200px;margin:100px 100px;">
+      <%= notice %>
       <%= yield %>
     </div>
   </body>
