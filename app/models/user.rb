@@ -4,9 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
   def self.new_gest
     find_or_create_by(email: 'gest@example.com') do |user|
-      user.password = SecureRandom.urlsafe_base64
+    user.password = SecureRandom.urlsafe_base64
     end
   end
 end
