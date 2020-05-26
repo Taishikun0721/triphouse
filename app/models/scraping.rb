@@ -1,6 +1,13 @@
 require 'mechanize'
 
 class Scraping
+
+  def self.delete_data
+    for num in 271..1075 do
+      Place.find(num).destroy
+    end
+  end
+
   def self.page_urls
     agent = Mechanize.new
     links = []
@@ -11,8 +18,8 @@ class Scraping
       elements.each do |ele|
         links << ele.get_attribute("href")
       end
-      @area = area
       links.each do |link|
+        @area = area
         get_information(link)
       end
     end
@@ -23,11 +30,10 @@ class Scraping
     page = agent.get(a)
     name = page.at(".post-title").inner_text
     image_url = page.at("img").get_attribute("src")
+    description = page.at(".entry-inner p").inner_text
     picture_area = @area
-    place = Place.where(name: name).first_or_initialize
-    place.name = name
-    place.image_url = image_url
-    place.area = picture_area
+    place = Place.where(name: name, image_url: image_url, area: picture_area).first_or_initialize
+    place.description = description
     place.save
   end
 end
