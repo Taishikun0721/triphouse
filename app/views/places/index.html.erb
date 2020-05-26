@@ -24,17 +24,17 @@
   </div>
 </div>
 <div class="row">
-  <% @place.each do |place| %>
+  <% @places.each do |place| %>
   <div class="card-group col-lg-4 col-md-12 col-sm-12">
     <div class="card mb-4">
       <img class="card-img-top" src=<%= place.image_url %>>
       <div class="card-body" style="background-color:rgba(144, 200, 51, 0.67)">
         <h4 class="card-title"><%= place.name %></h4>
         <p class="card-text"></p>
-        <a href="#!" class="btn btn-primary">さらに見る</a>
+        <%= link_to "さらに見る", place_path(place), class: "btn btn-primary" %>
       </div>
     </div>
   </div>
   <% end %>
-  <%= paginate @place %>
+  <%= paginate @places %>
 </div>
