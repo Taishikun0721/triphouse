@@ -2,8 +2,8 @@ require 'mechanize'
 
 class Scraping
 
-  def self.delete_data
-    for num in 271..1075 do
+  def self.delete_data(from,to)
+    for num in from..to do
       Place.find(num).destroy
     end
   end
