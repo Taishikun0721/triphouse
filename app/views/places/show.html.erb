@@ -6,4 +6,5 @@
     <h2><%= @place.name %></h2>
     <p><%= @place.description %></p>
   </div>
+  <%= link_to "コメントを書く", new_place_review_path(@place) %>
 </div>
