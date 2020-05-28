@@ -1,7 +1,19 @@
-var mySwiper = new Swiper('.swiper-container', {
-	navigation: {
-		nextEl: '.swiper-button-next',
-		prevEl: '.swiper-button-prev'
-	}
-});
-  
+<script>
+  var mySwiper = new Swiper ('.swiper-container', {
+    // ここからオプション
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+    autoplay: {
+      delay: 5000,
+    },
+  })
+ </script>
