@@ -4,9 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         def new_gest
-           user = User.new_gest
-           sign_in user
-           redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
-         end
+
+  def self.new_gest
+    find_or_create_by(email: 'gest@example.com') do |user|
+    user.password = SecureRandom.urlsafe_base64
+    end
+  end
 end
