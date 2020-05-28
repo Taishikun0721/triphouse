@@ -5,22 +5,44 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag ("https://unpkg.com/swiper/css/swiper.min.css") %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag ('https://code.jquery.com/jquery-2.1.0.min.js') %>
+    <%= javascript_include_tag ('https://unpkg.com/swiper/js/swiper.min.js') %>
   </head>
 
   <body style="padding: 5rem;">
       <div class="navbar navbar-expand navbar-light bg-light fixed-top p-4" style="border-bottom:inset;">
         <a href="/" class="navbar-brand" style="margin-right:20px">Triphouse</a>
         <ul class="navbar-nav nav-pills ml-auto justyfy-content-center">
-          <li class="nav-item"><a href= "/users/sign_up" class="nav-link">新規登録</a></li>
-          <li class="nav-item"><a href="/users/sign_out" data-method="delete" class="nav-link">サインアウト</a></li>
-          <li class="nav-item"><a href="/users/sign_out" data-method="delete" class="nav-link">簡単ログイン</a></li>
+          <li class="nav-item"><%= link_to "新規登録", new_user_registration_path,class:"nav-link" %></li>
+          <li class="nav-item"><%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
         </ul>
       </div>
-      <%= notice %>
+
     <div class = "container_fluid" style="height:200px;margin:100px 100px;">
+      <%= notice %>
       <%= yield %>
     </div>
+    <script>
+      var mySwiper = new Swiper ('.swiper-container', {
+        // ここからオプション
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+        autoplay: {
+          delay: 3000,
+        },
+      })
+     </script>
   </body>
 </html>
