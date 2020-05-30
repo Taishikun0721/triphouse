@@ -5,6 +5,18 @@
   <div class="col-12 col-md-12 col-sm-12">
     <h2><%= @place.name %></h2>
     <p><%= @place.description %></p>
+    <h3 class="mt-5"><%= @place.name %>についてレビューを書く</h3>
+    <div class="mt-3">
+      <%= form_with model:[@place,@review] do |f| %>
+      <%= f.text_area :review, placeholder: "レビュー", class: "form-control mb-3", rows: "5" %>
+      <%= f.submit class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <div>
+      <h3>コメント一覧</h3>
+      <div id= "auto-reviews">
+        <%= render @reviews %>
+      </div>
+    </div>
   </div>
-  <%= link_to "コメントを書く", new_place_review_path(@place) %>
 </div>

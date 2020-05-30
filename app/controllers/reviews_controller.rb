@@ -5,9 +5,10 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    place = Place.find(params[:place_id])
     Review.create(review_params)
-    redirect_to root_path
-    flash[:success] = "レビューを投稿しました"
+    @place = Place.find(params[:place_id])
+    @reviews = @place.reviews
   end
 
   private
