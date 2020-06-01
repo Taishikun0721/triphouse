@@ -5,10 +5,28 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    place = Place.find(params[:place_id])
     Review.create(review_params)
     @place = Place.find(params[:place_id])
     @reviews = @place.reviews
+  end
+
+  def edit
+    @place = Place.find(params[:place_id])
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    @place = Place.find(params[:place_id])
+    @review = Review.find(params[:id])
+    @review.update(review_params)
+    redirect_to controller: :places, action: :show, id: @place
+  end
+
+  def destroy
+    review = Review.find(params[:id])
+    @place = Place.find(params[:place_id])
+    review.destroy
+    redirect_to controller: :places, action: :show, id: @place
   end
 
   private

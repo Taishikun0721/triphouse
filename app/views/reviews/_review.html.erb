@@ -1,3 +1,6 @@
 <div>
   <%= review.review %>
+  <div class="btn btn-warning"><%= link_to "更新", edit_place_review_path(review.place,review) %></div>
+  <div class= "btn btn-success"><%= link_to "削除", place_review_path(review.place,review), method: :delete %></div>
+
 </div>
