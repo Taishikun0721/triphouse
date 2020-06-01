@@ -1,5 +1,7 @@
 class PlacesController < ApplicationController
 
+  before_action :authenticate_user!, only: [:show]
+
   def index
     @places = Place.page(params[:page]).per(18)
   end

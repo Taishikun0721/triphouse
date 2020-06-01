@@ -11,4 +11,7 @@ class User < ApplicationRecord
   end
 
   has_many :reviews, dependent: :destroy
+  validates :email, presence: true
+  validates :email, length: {maximum: 50}
+  validates :email, uniqueness: true
 end
