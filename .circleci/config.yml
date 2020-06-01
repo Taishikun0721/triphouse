@@ -5,10 +5,10 @@ jobs:
       - image: circleci/ruby:2.5.3-node-browsers
         environment:
           - RAILS_ENV: 'test'
-          -MYSQLHOST: 127.0.0.1
-          -MYSQL_PASSWORD: ''
-          -MYSQL_USERNAME: 'root'
-          -MYSQL_PORT: 3306
+          - MYSQL_HOST: 127.0.0.1
+          - MYSQL_PASSWORD: ''
+          - MYSQL_USERNAME: 'root'
+          - MYSQL_PORT: 3306
       - image: circleci/mysql:5.7
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
