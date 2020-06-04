@@ -25,8 +25,8 @@ class ReviewsController < ApplicationController
   def destroy
     review = Review.find(params[:id])
     @place = Place.find(params[:place_id])
+    @reviews = @place.reviews
     review.destroy
-    redirect_to controller: :places, action: :show, id: @place
   end
 
   private
