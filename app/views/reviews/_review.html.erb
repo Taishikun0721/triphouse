@@ -1,6 +1,5 @@
-<div>
+<div class="mb-5">
   <%= review.review %>
-  <div class="btn btn-warning"><%= link_to "更新", edit_place_review_path(review.place,review) %></div>
-  <div class= "btn btn-success"><%= link_to "削除", place_review_path(review.place,review), method: :delete, remote: true %></div>
-
+  <div class="btn btn-warning"><%= link_to "update", edit_place_review_path(review.place,review) %></div>
+  <div class= "btn btn-success"><%= link_to "delete", place_review_path(review.place,review), method: :delete, remote: true, data: { confirm: 'Are you sure you want to delete ?' }  %></div>
 </div>
