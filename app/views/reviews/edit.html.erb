@@ -1,5 +1,5 @@
 <div class="mt-3">
-  <%= form_with model:[@place,@review] do |f| %>
+  <%= form_with model:[controller.place,controller.review] do |f| %>
   <%= f.text_area :review, placeholder: "レビュー", class: "form-control mb-3", rows: "5" %>
   <%= f.submit class: "btn btn-primary" %>
   <% end %>

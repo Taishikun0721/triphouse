@@ -1,31 +1,35 @@
 class ReviewsController < ApplicationController
+
+  def place
+    Place.find(params[:place_id])
+  end
+
+  def review
+    Review.find(params[:id])
+  end
+# ↑繰り返し削除の為のパブリックメソッド
+
   def new
-    @place = Place.find(params[:place_id])
     @review = Review.new
   end
 
   def create
     Review.create(review_params)
-    @place = Place.find(params[:place_id])
-    @reviews = @place.reviews
+    @reviews = place.reviews
   end
 
   def edit
-    @place = Place.find(params[:place_id])
-    @review = Review.find(params[:id])
+    place
+    review
   end
 
   def update
-    @place = Place.find(params[:place_id])
-    @review = Review.find(params[:id])
-    @review.update(review_params)
-    redirect_to controller: :places, action: :show, id: @place
+    review.update(review_params)
+    redirect_to controller: :places, action: :show, id: place
   end
 
   def destroy
-    review = Review.find(params[:id])
-    @place = Place.find(params[:place_id])
-    @reviews = @place.reviews
+    @reviews = place.reviews
     review.destroy
   end
 
