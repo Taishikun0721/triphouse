@@ -5,7 +5,7 @@
     <title>Triphouse</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <%= stylesheet_link_tag ("https://unpkg.com/swiper/css/swiper.min.css") %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -16,34 +16,23 @@
   <body style="padding: 5rem;">
       <div class="navbar navbar-expand navbar-light bg-light fixed-top p-4" style="border-bottom:inset;">
         <a href="/" class="navbar-brand" style="margin-right:20px">Triphouse</a>
-        <ul class="navbar-nav nav-pills ml-auto justyfy-content-center">
-          <li class="nav-item"><%= link_to "新規登録", new_user_registration_path,class:"nav-link" %></li>
-          <li class="nav-item"><%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
-        </ul>
+        <% if user_signed_in? %>
+          <ul class="navbar-nav nav-pills ml-auto justyfy-content-center">
+              <li class="nav-item"><%= link_to "ユーザーページ", user_path(current_user.id),class:"nav-link" %></li>
+            <li class="nav-item"><%= link_to "新規登録", new_user_registration_path,class:"nav-link" %></li>
+            <li class="nav-item"><%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+          </ul>
+        <% else %>
+          <ul class="navbar-nav nav-pills ml-auto justyfy-content-center">
+            <li class="nav-item"><%= link_to "サインイン", new_user_session_path,class:"nav-link" %></li>
+            <li class="nav-item"><%= link_to "新規登録", new_user_registration_path,class:"nav-link" %></li>
+          </ul>
+        <% end %>
       </div>
 
     <div class = "container_fluid" style="height:200px;margin:100px 100px;">
-      <div class="alert alert-success mb-5" role="alert"><%= notice %></div>
+      <strong><%= notice %></strong>
       <%= yield %>
     </div>
-    <script>
-      var mySwiper = new Swiper ('.swiper-container', {
-        // ここからオプション
-        loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        scrollbar: {
-          el: '.swiper-scrollbar',
-        },
-        autoplay: {
-          delay: 3000,
-        },
-      })
-     </script>
   </body>
 </html>

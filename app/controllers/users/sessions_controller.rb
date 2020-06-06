@@ -26,4 +26,9 @@ class Users::SessionsController < Devise::SessionsController
   # end
   protect_from_forgery :except => [:new_gest]
 
+  def new_gest
+    user = User.gest
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
 end
