@@ -8,6 +8,13 @@ class Scraping
     end
   end
 
+  def self.update_area(from,to)
+    for num in from..to do
+      place = Place.find(num)
+      place.update( area: "")
+    end
+  end
+
   def self.page_urls
     agent = Mechanize.new
     links = []
