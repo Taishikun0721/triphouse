@@ -11,38 +11,27 @@
     <%= javascript_include_tag ('https://code.jquery.com/jquery-2.1.0.min.js') %>
     <%= javascript_include_tag ('https://unpkg.com/swiper/js/swiper.min.js') %>
   </head>
-  
+
   <body style="padding: 5rem;">
       <div class="navbar navbar-expand navbar-light bg-light fixed-top p-4" style="border-bottom:inset;">
         <a href="/" class="navbar-brand" style="margin-right:20px">Triphouse</a>
-        <ul class="navbar-nav nav-pills ml-auto justyfy-content-center">
-          <li class="nav-item"><%= link_to "新規登録", new_user_registration_path,class:"nav-link" %></li>
-          <li class="nav-item"><%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
-        </ul>
+        <% if user_signed_in? %>
+          <ul class="navbar-nav nav-pills ml-auto justyfy-content-center">
+              <li class="nav-item"><%= link_to "ユーザーページ", user_path(current_user.id),class:"nav-link" %></li>
+            <li class="nav-item"><%= link_to "新規登録", new_user_registration_path,class:"nav-link" %></li>
+            <li class="nav-item"><%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+          </ul>
+        <% else %>
+          <ul class="navbar-nav nav-pills ml-auto justyfy-content-center">
+            <li class="nav-item"><%= link_to "サインイン", new_user_session_path,class:"nav-link" %></li>
+            <li class="nav-item"><%= link_to "新規登録", new_user_registration_path,class:"nav-link" %></li>
+          </ul>
+        <% end %>
       </div>
 
     <div class = "container_fluid" style="height:200px;margin:100px 100px;">
-      <%= notice %>
+      <strong><%= notice %></strong>
       <%= yield %>
     </div>
-    <script>
-      var mySwiper = new Swiper ('.swiper-container', {
-        // ここからオプション
-        loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        scrollbar: {
-          el: '.swiper-scrollbar',
-        },
-        autoplay: {
-          delay: 3000,
-        },
-      })
-     </script>
   </body>
 </html>

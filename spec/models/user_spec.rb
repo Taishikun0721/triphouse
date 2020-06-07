@@ -17,6 +17,19 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user.errors[:email]).to include("can't be blank")
     end
+
+    # it "valid over 50 length of email" do
+    #   user = FactoryBot.build(:user, email: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.com", password: SecureRandom.urlsafe_base64)
+    #   user.valid?
+    #   expect(user.errors[:email]).to include("Email is too long")
+    # end
+
+    it "valid email is uniqueness" do
+      FactoryBot.create(:user, email: "test@example.com")
+      other_user = FactoryBot.build(:user, email: "test@example.com")
+      other_user.valid?
+      expect(other_user.errors[:email]).to include("has already been taken")
+    end
   end
 
   context "method test" do

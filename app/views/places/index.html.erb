@@ -1,44 +1,23 @@
-<<<<<<< HEAD
-
-=======
-<!-- Slider全体のコンテナ -->
-<div class="swiper-container">
-    <!-- Sliderの内包コンテナ -->
-    <div class="swiper-wrapper">
-        <!-- Slideさせたいコンテンツ -->
-        <div class="swiper-slide"><%= image_tag 'image4.jpeg',style: 'width: 100%;height:490px;' %></div>
-        <div class="swiper-slide"><%= image_tag 'image2.jpg!d',style: 'width: 100%;height:490px;' %></div>
-        <div class="swiper-slide"><%= image_tag 'image3.jpeg',style: 'width: 100%;height:490px;' %></div>
-        <div class="swiper-slide"><%= image_tag 'image1.jpeg',style: 'width: 100%;height:490px;' %></div>
-    </div>
-    <!-- ページネーション（※省略可） -->
-    <div class="swiper-pagination"></div>
-    <!-- ナビゲーションボタン（※省略可） -->
-    <!-- <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div> -->
-    <!-- スクロールバー（※省略可） -->
-    <!-- <div class="swiper-scrollbar"></div> -->
-</div>
->>>>>>> feature
-
+<%= render 'swiper' %>
 <div class="row mt-5 mb-5">
   <div class="col s12 m12 l12 text-center">
-    <h2>全世界の世界遺産を見てみよう</h2>
-    <p>各国の歴史を学んで新しい世界を見つけよう</p>
+    <h2>Look at these beautiful place all over the world</h2>
+    <p>Know deeper more intersting</p>
   </div>
 </div>
+
 <div class="row">
   <% @places.each do |place| %>
   <div class="card-group col-lg-4 col-md-12 col-sm-12">
     <div class="card mb-4">
       <img class="card-img-top" src=<%= place.image_url %>>
-      <div class="card-body" style="background-color:rgba(144, 200, 51, 0.67)">
+      <div class="card-body" style="background-color:rgba(144, 200, 51, 0)">
         <h4 class="card-title"><%= place.name %></h4>
         <p class="card-text"></p>
-        <%= link_to "さらに見る", place_path(place), class: "btn btn-primary" %>
+        <%= link_to "Look into", place_path(place), class: "btn btn-primary" %>
       </div>
     </div>
   </div>
   <% end %>
-  <%= paginate @places %>
+  <div class="mx-auto mb-5 mt-3"><%= paginate @places %></div>
 </div>
