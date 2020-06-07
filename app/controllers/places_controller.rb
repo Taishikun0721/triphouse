@@ -4,6 +4,7 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.page(params[:page]).per(18)
+    @place_areas = PlaceArea.all
   end
 
   def show
@@ -11,4 +12,5 @@ class PlacesController < ApplicationController
     @review = Review.new
     @reviews = @place.reviews
   end
+
 end

@@ -1,0 +1,14 @@
+<div class="row">
+  <% @place_area.places.each do |place| %>
+  <div class="card-group col-lg-4 col-md-12 col-sm-12">
+    <div class="card mb-4">
+      <img class="card-img-top" src=<%= place.image_url %>>
+      <div class="card-body" style="background-color:rgba(144, 200, 51, 0)">
+        <h4 class="card-title"><%= place.name %></h4>
+        <p class="card-text"></p>
+        <%= link_to "Look into", place_path(place), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

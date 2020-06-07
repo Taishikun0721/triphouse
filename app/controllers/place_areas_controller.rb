@@ -1,10 +1,10 @@
 class PlaceAreasController < ApplicationController
 
   def index
-    @place_areas = Place_area.all
+    @place_areas = PlaceArea.all
   end
 
   def show
-    @place_ara = Place_area.find(params[:id])
+    @place_area = PlaceArea.find(params[:id])
   end
 end
