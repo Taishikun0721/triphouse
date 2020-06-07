@@ -18,4 +18,5 @@ Rails.application.routes.draw do
     resources :reviews
   end
   resources :users, :only => [:show]
+  resources :place_areas, only: [:index, :show]
 end

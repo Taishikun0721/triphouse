@@ -7,13 +7,51 @@ class Scraping
       Place.find(num).destroy
     end
   end
+  # 任意のデータを削除する
 
-  def self.update_area(from,to)
-    for num in from..to do
+  def self.update_area
+    for num in 1..30 do
       place = Place.find(num)
-      place.update( area: "")
+      place.update( area: "アジア")
+    end
+
+    for num in 31..60 do
+      place = Place.find(num)
+      place.update( area: "アフリカ")
+    end
+
+    for num in 61..90 do
+      place = Place.find(num)
+      place.update( area: "オセアニア")
+    end
+
+    for num in 91..119 do
+      place = Place.find(num)
+      place.update( area: "ヨーロッパ")
+    end
+
+    for num in 120..149 do
+      place = Place.find(num)
+      place.update( area: "中央アメリカ")
+    end
+
+    for num in 150..179 do
+      place = Place.find(num)
+      place.update( area: "中東")
+    end
+
+    for num in 180..209 do
+      place = Place.find(num)
+      place.update( area: "北アメリカ")
+    end
+
+    for num in 210..238 do
+      place = Place.find(num)
+      place.update( area: "南アメリカ")
     end
   end
+
+  # areaの値を格納する
 
   def self.page_urls
     agent = Mechanize.new
@@ -31,6 +69,7 @@ class Scraping
       end
     end
   end
+  # スクレイピングでPlaceテーブルのデータを撮ってくる
 
   def self.get_information(a)
     agent = Mechanize.new
@@ -44,3 +83,4 @@ class Scraping
     place.save
   end
 end
+ # DBへの格納処理
