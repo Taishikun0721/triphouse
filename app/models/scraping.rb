@@ -1,53 +1,52 @@
 require 'mechanize'
 
 class Scraping
-
-  def self.delete_data(from,to)
-    for num in from..to do
+  def self.delete_data(from, to)
+    (from..to).each do |num|
       Place.find(num).destroy
     end
   end
   # 任意のデータを削除する
 
   def self.update_area
-    for num in 1..30 do
+    (1..30).each do |num|
       place = Place.find(num)
-      place.update( area: "アジア")
+      place.update(area: 'アジア')
     end
 
-    for num in 31..60 do
+    (31..60).each do |num|
       place = Place.find(num)
-      place.update( area: "アフリカ")
+      place.update(area: 'アフリカ')
     end
 
-    for num in 61..90 do
+    (61..90).each do |num|
       place = Place.find(num)
-      place.update( area: "オセアニア")
+      place.update(area: 'オセアニア')
     end
 
-    for num in 91..119 do
+    (91..119).each do |num|
       place = Place.find(num)
-      place.update( area: "ヨーロッパ")
+      place.update(area: 'ヨーロッパ')
     end
 
-    for num in 120..149 do
+    (120..149).each do |num|
       place = Place.find(num)
-      place.update( area: "中央アメリカ")
+      place.update(area: '中央アメリカ')
     end
 
-    for num in 150..179 do
+    (150..179).each do |num|
       place = Place.find(num)
-      place.update( area: "中東")
+      place.update(area: '中東')
     end
 
-    for num in 180..209 do
+    (180..209).each do |num|
       place = Place.find(num)
-      place.update( area: "北アメリカ")
+      place.update(area: '北アメリカ')
     end
 
-    for num in 210..238 do
+    (210..238).each do |num|
       place = Place.find(num)
-      place.update( area: "南アメリカ")
+      place.update(area: '南アメリカ')
     end
   end
 
@@ -56,12 +55,12 @@ class Scraping
   def self.page_urls
     agent = Mechanize.new
     links = []
-    areas = ["rank-asia/","rank-africa/","rank-oceania/","rank-europe/","rank-central-america/","rank-middle-east/","rank-northamerica/","rank-southamerica/"]
+    areas = ['rank-asia/', 'rank-africa/', 'rank-oceania/', 'rank-europe/', 'rank-central-america/', 'rank-middle-east/', 'rank-northamerica/', 'rank-southamerica/']
     areas.each do |area|
-      page = agent.get("https://worldheritagesite.xyz/ranking/ranking-countries/" + area)
-      elements = page.search(".read_more_par a")
+      page = agent.get('https://worldheritagesite.xyz/ranking/ranking-countries/' + area)
+      elements = page.search('.read_more_par a')
       elements.each do |ele|
-        links << ele.get_attribute("href")
+        links << ele.get_attribute('href')
       end
       links.each do |link|
         @area = area
@@ -74,13 +73,13 @@ class Scraping
   def self.get_information(a)
     agent = Mechanize.new
     page = agent.get(a)
-    name = page.at(".post-title").inner_text
-    image_url = page.at("img").get_attribute("src")
-    description = page.at(".entry-inner p").inner_text
+    name = page.at('.post-title').inner_text
+    image_url = page.at('img').get_attribute('src')
+    description = page.at('.entry-inner p').inner_text
     picture_area = @area
     place = Place.where(name: name, image_url: image_url, area: picture_area).first_or_initialize
     place.description = description
     place.save
   end
 end
- # DBへの格納処理
+# DBへの格納処理

@@ -72,10 +72,16 @@
         <!-- <div class="pw-view"><i class="fa fa-eye"></i></div> -->
       </div>
       <div class="form-item">
+        <%= f.label :avator,"画像アップロード", class:'image_input_btn' %><br />
+        <%= f.file_field :avator, class:'image_form' %><br />
+      </div>
+
+      <div class="form-item">
         <p class="pull-left"><a href="#"><small><%= render "users/shared/links" %></small></a></p>
-        <%= f.submit "Sign up", class: "login pull-right"  %>
+        <%= f.submit "Sign up", class: "login pull-right" %>
         <div class="clear-fix"></div>
       </div>
+
       <% end %>
     </div>
   </div>

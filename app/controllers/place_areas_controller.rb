@@ -1,5 +1,4 @@
 class PlaceAreasController < ApplicationController
-
   def index
     @place_areas = PlaceArea.all
   end

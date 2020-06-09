@@ -1,5 +1,4 @@
 class PlacesController < ApplicationController
-
   before_action :authenticate_user!, only: [:show]
 
   def index
@@ -12,5 +11,4 @@ class PlacesController < ApplicationController
     @review = Review.new
     @reviews = @place.reviews
   end
-
 end
