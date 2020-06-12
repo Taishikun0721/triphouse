@@ -10,5 +10,10 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     @review = Review.new
     @reviews = @place.reviews
+    @map = Place.find(params[:id])
+  end
+
+  def map
+
   end
 end
