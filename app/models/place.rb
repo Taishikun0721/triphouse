@@ -28,7 +28,4 @@ class Place < ApplicationRecord
     end
   end
 
-  def self.add_address
-    # アドレスが存在したら緯度経度を取得して保存する
-  end
 end

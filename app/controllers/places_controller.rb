@@ -12,8 +12,4 @@ class PlacesController < ApplicationController
     @reviews = @place.reviews
     @map = Place.find(params[:id])
   end
-
-  def map
-
-  end
 end

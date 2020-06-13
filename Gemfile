@@ -65,10 +65,10 @@ end
 gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
 gem 'font-awesome-rails'
+gem 'geocoder'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'mechanize'
 gem 'mini_magick'
 gem 'pry-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'geocoder'
