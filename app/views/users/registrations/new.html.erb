@@ -72,10 +72,10 @@
         <!-- <div class="pw-view"><i class="fa fa-eye"></i></div> -->
       </div>
       <div class="form-item">
-        <%= f.label :avator,"画像アップロード" %><br />
-        <%= f.file_field :avator %><br />
+        <%= f.label :avator,"画像アップロード",class:'image_input_btn' %><br />
+        <!-- <i class="fa fa-image fa-3x " style="cursor: pointer;"></i> -->
+        <%= f.file_field :avator%><br />
       </div>
-
       <div class="form-item">
         <p class="pull-left"><a href="#"><small><%= render "users/shared/links" %></small></a></p>
         <%= f.submit "Sign up", class: "login pull-right" %>
@@ -86,3 +86,9 @@
     </div>
   </div>
 </body>
+
+<style>
+.hoge{
+display: none;
+}
+</style>
