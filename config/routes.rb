@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   # devise_for :users
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
@@ -17,5 +18,6 @@ Rails.application.routes.draw do
     resources :reviews
   end
   resources :users, :only => [:show]
+
   resources :place_areas, only: [:index, :show]
 end
