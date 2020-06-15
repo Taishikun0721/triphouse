@@ -1,22 +1,24 @@
 <%= render 'swiper' %>
 <div class="row mt-5 mb-5">
   <div class="col s12 m12 l12 text-center">
-    <h2>Look at these beautiful place all over the world</h2>
-    <p>Know deeper more intersting</p>
+    <h2>旅のイメージを膨らまそう</h2>
+    <p>みなさんがこれまでに旅から得たこと、学んだ事を共有しましょう</p>
   </div>
 </div>
+<%= render 'place_areas/placegroup' %>
 <div class="row">
   <% @places.each do |place| %>
-  <div class="card-group col-lg-4 col-md-12 col-sm-12">
-    <div class="card mb-4">
-      <img class="card-img-top" src=<%= place.image_url %>>
-      <div class="card-body" style="background-color:rgba(144, 200, 51, 0)">
-        <h4 class="card-title"><%= place.name %></h4>
-        <p class="card-text"></p>
-        <%= link_to "Look into", place_path(place), class: "btn btn-primary" %>
+
+    <div class="card-group col-lg-4 col-md-12 col-sm-12">
+      <div class="card mb-4">
+        <img class="card-img-top" src=<%= place.image_url %>>
+        <div class="card-body" style="background-color:rgba(144, 200, 51, 0)">
+          <h4 class="card-title"><%= place.name %></h4>
+          <p class="card-text"></p>
+          <%= link_to "Look into", place_path(place), class: "btn btn-primary" %>
+        </div>
       </div>
     </div>
-  </div>
   <% end %>
   <div class="mx-auto mb-5 mt-3"><%= paginate @places %></div>
 </div>

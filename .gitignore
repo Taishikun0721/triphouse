@@ -25,3 +25,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore google API key
+/app/views/places/_map.html.erb
+/config/initializers/geocoder.rb

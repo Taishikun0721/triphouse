@@ -1,0 +1,8 @@
+<div class="row"></div>
+<div class="navbar navbar-expand navbar-dark bg-dark mb-5">
+  <ul class="navbar-nav nav-pills w-100 nav-justified">
+    <% @place_areas.each do |area| %>
+      <li class="nav-item"><%= link_to area.area_name, place_area_path(area), class:"nav-link" %></li>
+    <% end %>
+  </ul>
+</div>
