@@ -1,39 +1,23 @@
-<!-- Swiper START -->
-<div class="row mt-5 mb-5">
-<div class="swiper-container">
-  <!-- メイン表示部分 -->
-  <div class="swiper-wrapper">
-    <!-- 各スライド -->
-    <div class="swiper-slide"><%= image_tag 'image1.jpeg'%></div>
-    <div class="swiper-slide"><%= image_tag 'image2.jpeg'%></div>
-    <div class="swiper-slide"><%= image_tag 'image3.jpeg'%></div>
-    <div class="swiper-slide"><%= image_tag 'image2.jpeg'%></div>
-  </div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-</div>
-</div>
-<!-- Swiper END -->
-<!-- javascriptが読まれてないからあとでやる -->
-
+<%= render 'swiper' %>
 <div class="row mt-5 mb-5">
   <div class="col s12 m12 l12 text-center">
-    <h2>旅行の思い出を共有しよう</h2>
-    <p>行った事のある観光名所のエピソードをみんなに教えよう</p>
+    <h2>旅のイメージを膨らまそう</h2>
+    <p>みなさんがこれまでに旅から得たこと、学んだ事を共有しましょう</p>
   </div>
 </div>
+<%= render 'place_areas/placegroup' %>
 <div class="row">
-  <% @place.each do |place| %>
-  <div class="card-group col-lg-4 col-md-12 col-sm-12">
-    <div class="card mb-4">
-      <img class="card-img-top" src=<%= place.image_url %>>
-      <div class="card-body" style="background-color:rgba(98, 223, 78, 0.28)">
-        <h4 class="card-title"><%= place.name %></h4>
-        <p class="card-text"></p>
-        <a href="#!" class="btn btn-primary">Go details</a>
+  <% @places.each do |place| %>
+    <div class="card-group col-lg-4 col-md-12 col-sm-12">
+      <div class="card mb-4">
+        <img class="card-img-top" src=<%= place.image_url %>>
+        <div class="card-body" style="background-color:rgba(144, 200, 51, 0)">
+          <h4 class="card-title"><%= place.name %></h4>
+          <p class="card-text"></p>
+          <%= link_to "Look into", place_path(place), class: "btn btn-primary" %>
+        </div>
       </div>
     </div>
-  </div>
   <% end %>
-  <%= paginate @place %>
+  <div class="mx-auto mb-5 mt-3"><%= paginate @places %></div>
 </div>

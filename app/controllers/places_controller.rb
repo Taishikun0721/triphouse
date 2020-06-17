@@ -1,5 +1,21 @@
 class PlacesController < ApplicationController
+  before_action :authenticate_user!
+
+  before_action :show_user_icon
+
+  def show_user_icon
+    @user = User.find(current_user.id) if user_signed_in?
+  end
+
   def index
-    @place = Place.page(params[:page]).per(18)
+    @places = Place.page(params[:page]).per(18)
+    @place_areas = PlaceArea.all
+  end
+
+  def show
+    @place = Place.find(params[:id])
+    @review = Review.new
+    @reviews = @place.reviews
+    @map = Place.find(params[:id])
   end
 end

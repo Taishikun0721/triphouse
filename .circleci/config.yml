@@ -2,14 +2,18 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.5.3
+      - image: circleci/ruby:2.5.3-node-browsers
         environment:
           - RAILS_ENV: 'test'
+          - MYSQL_HOST: 127.0.0.1
+          - MYSQL_PASSWORD: ''
+          - MYSQL_USERNAME: 'root'
+          - MYSQL_PORT: 3306
       - image: circleci/mysql:5.7
         environment:
-            -MYSQL_PASSWORD: password
-            -MYSQL_USERNAME: 'root'
-    working_directory: ~/triphouse
+          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          - MYSQL_ROOT_HOST: '%'
+    working_directory: ~/repo
     steps:
       - checkout
       - restore_cache:

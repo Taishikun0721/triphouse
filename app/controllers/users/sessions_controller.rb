@@ -24,6 +24,11 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-  protect_from_forgery :except => [:new_gest]
+  protect_from_forgery except: [:new_gest]
 
+  def new_gest
+    user = User.gest
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
 end

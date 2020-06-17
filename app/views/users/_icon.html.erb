@@ -1,0 +1,2 @@
+<div class="icon"><%= image_tag @user.avator if @user.avator.attached? %></div>
+<li class="nav-item"><%= link_to @user.nickname, user_path(current_user.id),class:"nav-link" %></li>
