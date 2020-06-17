@@ -32,28 +32,40 @@
 
 # Tools
 -フロントエンドd
+
   -bootstrap4
+
   -jquery
+
   -swiper
 
 -バックエンド
+
   -ruby2.5.3
+
   -Rails5.2.2
 
 -DB
   -MYSQL5.7(ローカル)
 
 -インフラ
+
   -Docker
+
   -Docker-compose
+
   -CiecleCi(設定ファイルでハマり中)
 
 -テスト
+
   -Rspec
 
 -コード解析
+
   -Rubocop
 
 -API
+
   -Maps JavaScript API
+  
   -Geolocation API
