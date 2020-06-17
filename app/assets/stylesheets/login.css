@@ -31,7 +31,7 @@ div.logo svg{
 div#form{
     position: absolute;
     width:360px;
-    height:320px;
+    height:30px;
     height:auto;
     background-color: #fff;
     margin:auto;
@@ -89,3 +89,22 @@ input[type="submit"].login{
 }
 input[type="submit"].login:hover{background-color: #fff; border:1px solid #55b1df; color:#55b1df; cursor:pointer;}
 input[type="submit"].login:focus{outline: none;}
+
+
+.image_input_btn{
+        display: block;
+        background-color: #44aacc;
+        width: 180px;
+        height: 30px;
+        margin-top: 10px;
+        margin-left: 10px;
+        border-radius: 5px;
+        padding-top: 2px;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+      }
+
+      .image_form{
+        display: none;
+      }

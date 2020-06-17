@@ -52,16 +52,17 @@
       </div>
       <div class="form-item">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <p class="formLabel"><%= f.label :email %><br /></p>
+
+        <p class="formLabel"><i class="fa fa-envelope-o fa-lg "></i> <%= f.label :email %><br /></p>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-style' %>
       </div>
       <div class="form-item">
-        <p class="formLabel"><%= f.label :password %><br /></p>
+        <p class="formLabel"><i class="fa fa-key fa-lg "></i> <%= f.label :password %><br /></p>
         <%= f.password_field :password, autocomplete: "current-password", class:'form-style' %>
 
         <!-- <div class="pw-view"><i class="fa fa-eye"></i></div> -->
       </div>
-      <%= link_to "簡単ログイン", users_gest_sign_in_path, class: 'nav-link', method: :post %>
+      <%= link_to "簡単ログイン", users_gest_sign_in_path,  class:'image_input_btn mb-2', method: :post %>
 
 
       <% if devise_mapping.rememberable? %>

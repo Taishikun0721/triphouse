@@ -17,8 +17,7 @@
         <a href="/" class="navbar-brand" style="margin-right:20px">Triphouse</a>
         <% if user_signed_in? %>
           <ul class="navbar-nav nav-pills ml-auto justyfy-content-center">
-              <li class="nav-item"><%= link_to "ユーザーページ", user_path(current_user.id),class:"nav-link" %></li>
-            <li class="nav-item"><%= link_to "新規登録", new_user_registration_path,class:"nav-link" %></li>
+            <%= render 'users/icon' %>
             <li class="nav-item"><%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
           </ul>
         <% else %>
