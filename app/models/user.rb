@@ -15,6 +15,7 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :email, length: { maximum: 50 }
   validates :email, uniqueness: true
+  validates :nickname, presence: true, length: { maximum: 15 }
 
   has_one_attached :avator
 end

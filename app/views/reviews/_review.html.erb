@@ -1,6 +1,5 @@
 <div class="mb-5">
-
-  <%= image_tag review.user.avator, class: "icon mb-2 border-bottom" if review.user.avator.attached?%></br>
+  <%= image_tag review.user.avator, class: "icon mb-2 border-bottom" if review.user.avator.attached?%><%= review.user.nickname %></br>
   <%= review.review %>
   <div class="btn btn-warning"><%= link_to "update", edit_place_review_path(review.place,review) %></div>
   <div class= "btn btn-success"><%= link_to "delete", place_review_path(review.place,review), method: :delete, remote: true, data: { confirm: 'Are you sure you want to delete ?' }  %></div>
