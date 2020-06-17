@@ -8,6 +8,7 @@
 <%= render 'place_areas/placegroup' %>
 <div class="row">
   <% @places.each do |place| %>
+
     <div class="card-group col-lg-4 col-md-12 col-sm-12">
       <div class="card mb-4">
         <img class="card-img-top" src=<%= place.image_url %>>
