@@ -53,11 +53,11 @@
       <div class="form-item">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
-        <p class="formLabel"><%= f.label :email %><br /></p>
+        <p class="formLabel"><i class="fa fa-envelope-o fa-lg "></i> <%= f.label :email %><br /></p>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-style' %>
       </div>
       <div class="form-item">
-        <p class="formLabel"><%= f.label :password %></p>
+        <p class="formLabel"><i class="fa fa-key fa-lg "></i> <%= f.label :password %></p>
         <% if @minimum_password_length %>
         <!-- <em>(<%= @minimum_password_length %> characters minimum)</em> -->
         <% end %>
@@ -66,21 +66,21 @@
         <!-- <div class="pw-view"><i class="fa fa-eye"></i></div> -->
       </div>
       <div class="form-item">
-        <p class="formLabel"><%= f.label :password_confirmation %><br /></p>
+        <p class="formLabel"><i class="fa fa-key fa-lg "></i> <%= f.label :password_confirmation %><br /></p>
         <%= f.password_field :password_confirmation, autocomplete: "new-password",class:'form-style' %>
 
         <!-- <div class="pw-view"><i class="fa fa-eye"></i></div> -->
       </div>
 
       <div class="form-item">
-        <p class="formLabel"><%= f.label :nickname %><br /></p>
+        <p class="formLabel"><i class="fa fa-user fa-lg "></i> <%= f.label :nickname %><br /></p>
         <%= f.text_field :nickname, class:'form-style' %>
 
         <!-- <div class="pw-view"><i class="fa fa-eye"></i></div> -->
       </div>
 
       <div class="form-item">
-        <%= f.label :avator,"画像アップロード",class:'image_input_btn' %><br />
+        <!-- <%= f.label :avator,"画像アップロード",class:'image_input_btn' %><br /> -->
         <!-- <i class="fa fa-image fa-3x " style="cursor: pointer;"></i> -->
         <%= f.file_field :avator%><br />
       </div>
