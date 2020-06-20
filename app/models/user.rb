@@ -7,7 +7,7 @@ class User < ApplicationRecord
   def self.gest
     find_or_create_by(email: 'gest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
-      user.avator.attach(io: File.open('/path/to/file'), filename: "testicon.jpeg", content_type: "image/jpg")
+      user.avator.attach(io: File.open("#{Rails.root}/tmp/storage/testicon.jpeg"), filename: "testicon.jpeg", content_type: "image/jpg")
     end
   end
   # 簡単ログイン機能を実装
