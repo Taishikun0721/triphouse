@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :show_user_icon
+ 
   def place
     Place.find(params[:place_id])
   end
