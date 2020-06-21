@@ -32,28 +32,47 @@
 
 # Tools
 -フロントエンドd
- -bootstrap4
- -jquery
- -swiper
+
+  -bootstrap4
+
+  -jquery
+
+  -swiper
+
 
 -バックエンド
-  ruby2.5.3
-  Rails5.2.2
+
+  -ruby2.5.3
+
+  -Rails5.2.2
 
 -DB
- -MYSQL5.7(ローカル)
+  -MYSQL5.7(ローカル)
 
 -インフラ
- -Docker
- -Docker-compose
- -CiecleCi(設定ファイルでハマり中)
+
+  -Docker
+
+  -Docker-compose
+
+  -CiecleCi(設定ファイルでハマり中)
 
 -テスト
- -Rspec
+
+  -Rspec
+
+-コード解析
+
+  -Rubocop
+
+-API
+
+  -Maps JavaScript API
+
+  -Geolocation API
 
 -コード解析
  -Rubocop
 
--API
- -Maps JavaScript API
- -Geolocation API
+
+

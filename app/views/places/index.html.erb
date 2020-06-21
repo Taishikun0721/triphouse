@@ -10,12 +10,12 @@
   <% @places.each do |place| %>
 
     <div class="card-group col-lg-4 col-md-12 col-sm-12">
-      <div class="card mb-4">
+      <div class="card mb-4" style="border-radius:40%;">
         <img class="card-img-top" src=<%= place.image_url %>>
-        <div class="card-body" style="background-color:rgba(144, 200, 51, 0)">
+        <div class="card-body text-center" style="background-color:rgba(144, 200, 51, 0)">
           <h4 class="card-title"><%= place.name %></h4>
           <p class="card-text"></p>
-          <%= link_to "Look into", place_path(place), class: "btn btn-primary" %>
+          <%= link_to "Look into", place_path(place), class: "btn btn-warning" %>
         </div>
       </div>
     </div>
