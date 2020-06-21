@@ -39,6 +39,7 @@
 
   -swiper
 
+
 -バックエンド
 
   -ruby2.5.3
@@ -69,3 +70,9 @@
   -Maps JavaScript API
 
   -Geolocation API
+
+-コード解析
+ -Rubocop
+
+
+

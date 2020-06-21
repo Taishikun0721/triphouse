@@ -8,7 +8,9 @@ class ReviewsController < ApplicationController
   def review
     Review.find(params[:id])
   end
+
   # ↑繰り返し削除の為のパブリックメソッド
+
 
   def new
     @review = Review.new
